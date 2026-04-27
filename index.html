@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Payaa AI · Black Pink Premium | Sewa Grup</title>
+    <title>Payaa AI · Black Pink Luxury Edition</title>
     <!-- Google Fonts + Font Awesome 6 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,7 +17,7 @@
         }
 
         body {
-            background: radial-gradient(circle at 10% 20%, #0a0a0f 0%, #030103 100%);
+            background: #000000;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
             display: flex;
@@ -26,98 +28,148 @@
             overflow-x: hidden;
         }
 
-        /* efek partikel hitam pink */
-        .bp-particles {
+        /* Dynamic gradient orb background */
+        .bg-orb {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .orb-1 {
+            position: absolute;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(255,20,147,0.25) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            top: -20%;
+            right: -10%;
+            filter: blur(80px);
+            animation: floatOrb 18s infinite alternate;
+        }
+        .orb-2 {
+            position: absolute;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(255,105,180,0.2) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            bottom: -30%;
+            left: -20%;
+            filter: blur(100px);
+            animation: floatOrb2 22s infinite alternate;
+        }
+        @keyframes floatOrb {
+            0% { transform: translate(0,0) scale(1); opacity: 0.5; }
+            100% { transform: translate(5%, 5%) scale(1.1); opacity: 0.8; }
+        }
+        @keyframes floatOrb2 {
+            0% { transform: translate(0,0) scale(1); opacity: 0.4; }
+            100% { transform: translate(-8%, -5%) scale(1.2); opacity: 0.7; }
+        }
+
+        /* glitter stars */
+        .glitter {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
+            z-index: 1;
         }
-        .particle {
+        .glitter-star {
             position: absolute;
-            background: radial-gradient(circle, #ff69b4, #ff1493);
+            background: #FF69B4;
             border-radius: 50%;
             filter: blur(1px);
-            opacity: 0.4;
-            animation: floatParticle 7s infinite alternate ease-in-out;
+            opacity: 0.6;
+            animation: twinkGlitter 3s infinite ease-in-out;
         }
-        @keyframes floatParticle {
-            0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
-            100% { transform: translateY(-30px) scale(1.2); opacity: 0.7; }
+        @keyframes twinkGlitter {
+            0% { transform: scale(0.5); opacity: 0.2; }
+            100% { transform: scale(1.2); opacity: 1; }
         }
 
         .container {
             position: relative;
-            z-index: 20;
-            max-width: 1350px;
+            z-index: 30;
+            max-width: 1400px;
             width: 100%;
             margin: 0 auto;
         }
 
-        /* header black pink bold */
+        /* Header Ultra Premium */
         .hero {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
         .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #FF69B4, #FF1493, #FFB6C1);
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF69B4, #FF1493, #FFB6C1, #FF69B4);
+            background-size: 300% 300%;
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            letter-spacing: -1px;
-            filter: drop-shadow(0 4px 12px rgba(255,20,147,0.5));
+            letter-spacing: -2px;
+            animation: gradientShift 6s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .hero h1 i {
             background: none;
             color: #FF1493;
+            text-shadow: 0 0 20px #FF69B4;
         }
-        .bp-badge {
+        .pro-maxx-badge {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(12px);
-            padding: 0.7rem 2rem;
-            border-radius: 100px;
-            margin-top: 1rem;
-            border: 1px solid #FF69B4;
-            box-shadow: 0 0 12px rgba(255,105,180,0.4);
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(20px);
+            padding: 0.8rem 2.2rem;
+            border-radius: 120px;
+            margin-top: 1.2rem;
+            border: 1px solid rgba(255, 20, 147, 0.8);
+            box-shadow: 0 0 24px rgba(255,20,147,0.5);
         }
-        .bp-badge i {
-            font-size: 1.3rem;
+        .pro-maxx-badge i {
+            font-size: 1.5rem;
             color: #FF69B4;
         }
-        .bp-badge span {
-            font-weight: 700;
-            color: #FFB6C1;
-            letter-spacing: -0.2px;
+        .pro-maxx-badge span {
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFB6C1, #FF1493);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
         }
 
-        /* grid kartu blackpink */
+        /* Pricing Grid - Super Premium */
         .pricing-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
-            margin: 2.5rem 0 2.8rem;
+            gap: 2.2rem;
+            margin: 3rem 0 3rem;
         }
 
         .price-card {
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(14px);
-            border-radius: 2rem;
-            padding: 1.8rem 1.3rem 2rem;
-            width: 230px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 2.5rem;
+            padding: 2rem 1.5rem 2.2rem;
+            width: 250px;
             text-align: center;
-            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            border: 1px solid rgba(255, 105, 180, 0.5);
-            box-shadow: 0 20px 35px -10px rgba(255,20,147,0.3);
+            transition: all 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+            border: 1px solid rgba(255, 105, 180, 0.4);
+            box-shadow: 0 25px 45px -15px rgba(255,20,147,0.3);
             cursor: pointer;
             position: relative;
             overflow: hidden;
@@ -126,489 +178,467 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,105,180,0.25), transparent 70%);
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,105,180,0.3), transparent 70%);
             opacity: 0;
-            transition: opacity 0.4s;
-            pointer-events: none;
+            transition: opacity 0.5s;
         }
         .price-card:hover::before {
             opacity: 1;
         }
         .price-card:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-18px) scale(1.03);
             border-color: #FF1493;
-            box-shadow: 0 30px 45px -12px #ff1493;
+            box-shadow: 0 40px 60px -15px #ff1493;
             background: rgba(0, 0, 0, 0.85);
         }
         .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
             background: linear-gradient(145deg, #FF69B4, #FF1493);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            transition: transform 0.3s;
+        }
+        .price-card:hover .card-icon {
+            transform: scale(1.1);
         }
         .duration {
-            font-size: 1.7rem;
+            font-size: 1.9rem;
             font-weight: 800;
-            color: #FFB6C1;
+            background: linear-gradient(145deg, #FFE4EC, #FFB6C1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
             letter-spacing: -0.5px;
         }
         .price {
-            font-size: 2.3rem;
-            font-weight: 800;
+            font-size: 2.5rem;
+            font-weight: 900;
             background: linear-gradient(135deg, #FF69B4, #FFB347);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            margin: 0.6rem 0;
+            margin: 0.7rem 0;
         }
         .price small {
-            font-size: 0.8rem;
-            color: #D98CAF;
+            font-size: 0.85rem;
+            color: #E2729E;
             background: none;
-            -webkit-background-clip: unset;
-            color: #D98CAF;
         }
-        .btn-blackpink {
+        .btn-pro {
             background: rgba(255, 50, 120, 0.2);
             border: 1.5px solid #FF69B4;
-            padding: 0.7rem 1.3rem;
-            border-radius: 50px;
-            font-weight: 700;
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 800;
             color: #FFB6C1;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             margin-top: 1rem;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            transition: 0.25s;
+            gap: 12px;
+            transition: 0.3s;
             cursor: pointer;
         }
-        .price-card:hover .btn-blackpink {
+        .price-card:hover .btn-pro {
             background: #FF1493;
             border-color: #FF69B4;
             color: white;
-            box-shadow: 0 6px 14px rgba(255, 20, 147, 0.6);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6);
+            letter-spacing: 0.5px;
         }
-        .badge-hot-bp {
+        .badge-ultimate {
             position: absolute;
-            top: 14px;
-            right: 12px;
+            top: 15px;
+            right: 15px;
             background: linear-gradient(95deg, #FF1493, #FF69B4);
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 5px 12px;
-            border-radius: 40px;
-            color: #000;
-            box-shadow: 0 0 10px #FF1493;
+            font-size: 0.7rem;
+            font-weight: 900;
+            padding: 6px 14px;
+            border-radius: 50px;
+            color: white;
+            box-shadow: 0 0 15px #FF1493;
+            animation: pulseUltimate 1.8s infinite;
+        }
+        @keyframes pulseUltimate {
+            0% { opacity: 0.7; transform: scale(0.95);}
+            100% { opacity: 1; transform: scale(1.05);}
         }
         .card-permanent {
-            border-top: 3px solid #FF1493;
-            background: rgba(0, 0, 0, 0.85);
+            background: linear-gradient(145deg, #0d0208, #1a0a15);
+            border: 2px solid #FF1493;
         }
 
-        /* kontak blackpink */
+        /* Support Black Pink Premium */
         .support-area {
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(18px);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(24px);
             border-radius: 2rem;
-            padding: 1.5rem 2rem;
+            padding: 1.8rem 2rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 1.4rem;
-            margin: 1rem 0 1.2rem;
-            border: 1px solid rgba(255, 105, 180, 0.6);
+            gap: 1.5rem;
+            margin: 1rem 0 1.5rem;
+            border: 1px solid rgba(255, 105, 180, 0.7);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .support-card {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
             flex: 1;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 0.8rem 1.3rem;
-            border-radius: 80px;
-            transition: 0.2s;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0.9rem 1.5rem;
+            border-radius: 100px;
+            transition: all 0.3s;
         }
         .support-card i {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #FF69B4;
         }
         .support-text .label {
             font-size: 0.7rem;
             text-transform: uppercase;
             color: #FF99CC;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
         .support-text .value {
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1rem;
-            color: #FFCCE5;
+            color: #FFE0F0;
         }
         .copy-icon {
             background: none;
             border: none;
             color: #FF69B4;
-            margin-left: 8px;
+            margin-left: 10px;
             cursor: pointer;
-            font-size: 0.9rem;
-        }
-        .copy-icon:hover {
-            color: #FF99CC;
+            font-size: 1rem;
+            transition: 0.2s;
         }
 
-        /* MODAL QR BLACK PINK */
-        .modal-qr {
+        /* MODAL PRO MAX */
+        .modal-pro {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(24px);
+            z-index: 2000;
             justify-content: center;
             align-items: center;
         }
-        .modal-qr.active {
+        .modal-pro.active {
             display: flex;
         }
-        .modal-card {
-            background: #0a0208;
-            background: linear-gradient(145deg, #0f0a0e, #1a0f15);
-            border-radius: 2rem;
-            max-width: 430px;
+        .modal-content-pro {
+            background: radial-gradient(ellipse at 30% 20%, #0f0510, #020001);
+            border-radius: 3rem;
+            max-width: 480px;
             width: 90%;
-            padding: 2rem 1.8rem;
+            padding: 2.2rem 2rem;
             text-align: center;
             border: 2px solid #FF1493;
-            box-shadow: 0 30px 50px rgba(255, 20, 147, 0.5);
-            animation: modalPop 0.3s ease;
+            box-shadow: 0 0 60px rgba(255,20,147,0.6);
+            animation: modalRise 0.3s ease-out;
         }
-        @keyframes modalPop {
-            from { transform: scale(0.94); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        @keyframes modalRise {
+            from { transform: scale(0.9) translateY(20px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
         }
-        .qr-wrapper {
-            background: white;
+        .qr-glow {
+            background: linear-gradient(145deg, #fff, #ffe0f0);
             padding: 12px;
-            border-radius: 32px;
+            border-radius: 36px;
             display: inline-block;
             margin: 1rem 0;
-            box-shadow: 0 0 0 3px #FF69B4;
+            box-shadow: 0 0 0 4px #FF69B4;
         }
-        .qr-wrapper img {
-            width: 210px;
-            height: 210px;
+        .qr-glow img {
+            width: 220px;
+            height: 220px;
             object-fit: contain;
-            border-radius: 20px;
+            border-radius: 24px;
         }
-        .btn-action {
-            background: #FF1493;
+        .btn-pro-action {
+            background: linear-gradient(95deg, #FF1493, #FF69B4);
             border: none;
-            padding: 0.8rem 1rem;
+            padding: 0.9rem 1.2rem;
             border-radius: 60px;
-            font-weight: 700;
+            font-weight: 800;
             color: white;
             margin-top: 1rem;
             cursor: pointer;
             transition: 0.2s;
             width: 100%;
+            font-size: 1rem;
         }
-        .btn-action i {
-            margin-right: 8px;
-        }
-        .btn-secondary {
-            background: rgba(255, 105, 180, 0.2);
+        .btn-pro-outline {
+            background: rgba(255, 105, 180, 0.15);
             border: 1px solid #FF69B4;
             color: #FFB6C1;
-            margin-top: 0.7rem;
+            margin-top: 0.8rem;
         }
-        .toast-notif {
+        .toast-pro {
             position: fixed;
-            bottom: 30px;
+            bottom: 35px;
             left: 50%;
             transform: translateX(-50%) scale(0.9);
-            background: #1a0f15;
-            backdrop-filter: blur(20px);
-            padding: 12px 28px;
-            border-radius: 60px;
+            background: #1a0a15;
+            backdrop-filter: blur(28px);
+            padding: 14px 32px;
+            border-radius: 80px;
             color: #FFB6C1;
-            font-weight: 600;
-            z-index: 1100;
+            font-weight: 700;
+            z-index: 2100;
             opacity: 0;
             transition: 0.2s;
-            border-left: 4px solid #FF1493;
+            border-left: 5px solid #FF1493;
             pointer-events: none;
         }
-        .toast-notif.show {
+        .toast-pro.show {
             opacity: 1;
             transform: translateX(-50%) scale(1);
         }
         footer {
             text-align: center;
-            font-size: 0.7rem;
-            color: #B35F8E;
+            font-size: 0.75rem;
+            color: #A34E79;
             margin-top: 2rem;
+            font-weight: 500;
         }
 
-        @media (max-width: 680px) {
-            .price-card { width: 170px; padding: 1.2rem 0.7rem; }
-            .duration { font-size: 1.3rem; }
-            .price { font-size: 1.8rem; }
-            .hero h1 { font-size: 2.2rem; }
+        @media (max-width: 700px) {
+            .price-card { width: 180px; padding: 1.2rem 0.8rem; }
+            .duration { font-size: 1.4rem; }
+            .price { font-size: 1.9rem; }
+            .hero h1 { font-size: 2.5rem; }
         }
         @media (max-width: 480px) {
-            .price-card { width: 155px; }
+            .price-card { width: 165px; }
             .support-area { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-<div class="bp-particles" id="bpParticles"></div>
+<div class="bg-orb">
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+</div>
+<div class="glitter" id="glitterContainer"></div>
+
 <div class="container">
-    <div class="hero">
-        <h1><i class="fas fa-crown"></i> Payaa AI <span style="background: linear-gradient(145deg,#FF69B4,#FF1493); background-clip:text; -webkit-background-clip:text; color:transparent;">BLACK PINK</span> <i class="fas fa-heart" style="color:#FF1493;"></i></h1>
-        <div class="bp-badge">
-            <i class="fas fa-bolt"></i>
-            <span>✦ PREMIUM GROUP | SCAN & JOIN | SUPPORT 24/7 ✦</span>
-            <i class="fas fa-gem" style="color:#FF69B4;"></i>
+    <div class="hero" data-aos="fade-down" data-aos-duration="1000">
+        <h1><i class="fas fa-crown"></i> Payaa <span style="background: linear-gradient(145deg,#FF69B4,#FF1493); background-clip:text; -webkit-background-clip:text; color:transparent;">AI</span> <i class="fas fa-bolt"></i></h1>
+        <div class="pro-maxx-badge">
+            <i class="fas fa-gem"></i>
+            <span>✦ ON 24 JAM| 24K SUPPORT ✦</span>
+            <i class="fas fa-infinity"></i>
         </div>
     </div>
 
     <div class="pricing-grid">
-        <!-- 2 Minggu -->
-        <div class="price-card" data-dur="2 Minggu" data-harga="5000">
+        <div class="price-card" data-dur="2 Minggu" data-harga="10000" data-aos="flip-up" data-aos-delay="100">
             <div class="card-icon"><i class="fas fa-calendar-week"></i></div>
             <div class="duration">2 Minggu</div>
-            <div class="price">Rp5K <small>/paket</small></div>
-            <div class="btn-blackpink">Pilih Paket <i class="fas fa-arrow-right"></i></div>
+            <div class="price">Rp10.000 <small>/paket</small></div>
+            <div class="btn-pro">Pilih Sekarang <i class="fas fa-arrow-right"></i></div>
         </div>
-        <!-- 1 Bulan -->
-        <div class="price-card" data-dur="1 Bulan" data-harga="10000">
+        <div class="price-card" data-dur="1 Bulan" data-harga="20000" data-aos="flip-up" data-aos-delay="200">
             <div class="card-icon"><i class="fas fa-moon"></i></div>
             <div class="duration">1 Bulan</div>
-            <div class="price">Rp10K <small>/bulan</small></div>
-            <div class="btn-blackpink">Pilih Paket <i class="fas fa-arrow-right"></i></div>
+            <div class="price">Rp20.000 <small>/bulan</small></div>
+            <div class="btn-pro">Pilih Sekarang <i class="fas fa-arrow-right"></i></div>
         </div>
-        <!-- 1,2 Bulan -->
-        <div class="price-card" data-dur="1,2 Bulan" data-harga="15000">
+        <div class="price-card" data-dur="1,2 Bulan" data-harga="25000" data-aos="flip-up" data-aos-delay="300">
             <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="duration">1,2 Bulan</div>
-            <div class="price">Rp15K <small>/special</small></div>
-            <div class="btn-blackpink">Pilih Paket <i class="fas fa-arrow-right"></i></div>
+            <div class="duration">2 Bulan</div>
+            <div class="price">Rp25.000 <small>/special</small></div>
+            <div class="btn-pro">Pilih Sekarang <i class="fas fa-arrow-right"></i></div>
         </div>
-        <!-- Permanen Best Value -->
-        <div class="price-card card-permanent" data-dur="Permanen (Seumur Hidup)" data-harga="20000">
-            <div class="badge-hot-bp"><i class="fas fa-fire"></i> BLACK PINK BEST</div>
+        <div class="price-card card-permanent" data-dur="Permanen (Seumur Hidup)" data-harga="45000" data-aos="flip-up" data-aos-delay="400">
+            <div class="badge-ultimate"><i class="fas fa-crown"></i> ULTIMATE</div>
             <div class="card-icon"><i class="fas fa-infinity"></i></div>
             <div class="duration">Permanen</div>
-            <div class="price">Rp20K <small>/lifetime</small></div>
-            <div class="btn-blackpink">Pilih Paket <i class="fas fa-arrow-right"></i></div>
+            <div class="price">Rp45.000 <small>/lifetime</small></div>
+            <div class="btn-pro">Pilih Sekarang <i class="fas fa-arrow-right"></i></div>
         </div>
     </div>
 
-    <div class="support-area">
+    <div class="support-area" data-aos="fade-up" data-aos-duration="800">
         <div class="support-card">
             <i class="fab fa-whatsapp"></i>
             <div class="support-text">
                 <div class="label">GRUP PREVIEW (PAYAA AI)</div>
                 <div class="value">
-                    <a href="https://chat.whatsapp.com/J43Z8SmzEQt3hoDpI92TIS" target="_blank" style="color:#FFB6C1; text-decoration:none;">join demo grup</a>
-                    <button class="copy-icon" data-copy-link="https://chat.whatsapp.com/J43Z8SmzEQt3hoDpI92TIS" title="Salin link"><i class="fas fa-copy"></i></button>
+                    <a href="https://chat.whatsapp.com/J43Z8SmzEQt3hoDpI92TIS" target="_blank" style="color:#FFCCE5; text-decoration:none;">join blackpink demo</a>
+                    <button class="copy-icon" data-copy-link="https://chat.whatsapp.com/J43Z8SmzEQt3hoDpI92TIS"><i class="fas fa-copy"></i></button>
                 </div>
             </div>
         </div>
         <div class="support-card">
-            <i class="fas fa-user-tie"></i>
+            <i class="fas fa-headset"></i>
             <div class="support-text">
-                <div class="label">ADMIN PAYAA</div>
+                <div class="label">OWNER PAYAA PRO</div>
                 <div class="value">
-                    <a href="https://wa.me/6285643623053" target="_blank" style="color:#FFB6C1;">+62 856-4362-3053</a>
-                    <button class="copy-icon" data-copy-number="6285643623053" title="Salin nomor"><i class="fas fa-copy"></i></button>
+                    <a href="https://wa.me/6285643623053" target="_blank" style="color:#FFCCE5;">+62 856-4362-3053</a>
+                    <button class="copy-icon" data-copy-number="6285643623053"><i class="fas fa-copy"></i></button>
                 </div>
             </div>
         </div>
     </div>
     <footer>
-        <i class="fas fa-shield-alt"></i> Payaa AI Black Pink · Pilih paket → Scan QR pembayaran → Kirim bukti transfer ke admin
+        <i class="fas fa-shield-heart"></i> Payaa AI · Black Pink Pro Maxx · Pilih paket → Scan QR → Konfirmasi via WA (sertakan bukti)
     </footer>
 </div>
 
-<!-- MODAL QR CODE BLACK PINK STYLE -->
-<div id="bpModal" class="modal-qr">
-    <div class="modal-card">
-        <i class="fas fa-qrcode" style="font-size: 2.6rem; color: #FF69B4;"></i>
-        <h3 style="color:#FFB6C1; margin: 8px 0 6px;">🖤 PAYAA AI · QRIS PINK 🖤</h3>
-        <div id="modalPackageName" style="background: #2a0f1c; padding: 5px 14px; border-radius: 40px; display: inline-block; font-size: 0.8rem; color: #FF99CC; font-weight: 700; margin-bottom: 15px;">Paket: -</div>
-        <div class="qr-wrapper">
-            <img id="qrImageBp" src="https://e.top4top.io/p_3769a1mza0.png" alt="QR Payaa AI Black Pink">
+<!-- MODAL ULTRA PREMIUM -->
+<div id="proMaxModal" class="modal-pro">
+    <div class="modal-content-pro">
+        <i class="fas fa-qrcode" style="font-size: 2.8rem; color: #FF69B4;"></i>
+        <h3 style="color:#FFB6C1; margin: 10px 0 5px; font-size: 1.7rem;">⋆⭒˚ 𝗣𝗔𝗬𝗔𝗔 𝗤𝗥 𝗣𝗥𝗢 ˚⭒⋆</h3>
+        <div id="modalPkgName" style="background: #3a0f24; padding: 6px 16px; border-radius: 40px; display: inline-block; font-size: 0.85rem; color: #FF99CC; font-weight: 800; margin-bottom: 16px;">Paket :</div>
+        <div class="qr-glow">
+            <img id="qrProImage" src="https://e.top4top.io/p_3769a1mza0.png" alt="QR Payaa AI Pro Maxx">
         </div>
-        <div style="font-size: 1.4rem; font-weight: 800; color: #FF69B4;" id="modalPriceAmount">Rp0</div>
-        <div class="instruction" style="font-size: 0.7rem; color: #D98CAF; margin-top: 8px;">
-            <i class="fas fa-mobile-alt"></i> 1. Scan QR & bayar tepat nominal<br>
-            <i class="fab fa-whatsapp"></i> 2. Klik tombol bawah → kirim bukti transfer
-        </div>
-        <button class="btn-action" id="sendProofBtn"><i class="fab fa-whatsapp"></i> Kirim Bukti Transfer ke Admin</button>
-        <button class="btn-action btn-secondary" id="closeModalBtn"><i class="fas fa-times"></i> Tutup</button>
+        <div style="font-size: 1.6rem; font-weight: 900; color: #FF69B4;" id="modalProPrice">Rp0</div>
+        <p style="font-size: 0.7rem; color: #D98CAF; margin: 8px 0;"><i class="fas fa-mobile-alt"></i> Scan QRIS & transfer sesuai nominal</p>
+        <button class="btn-pro-action" id="sendWaEvidence"><i class="fab fa-whatsapp"></i> Kirim Bukti Transfer ke Admin</button>
+        <button class="btn-pro-action btn-pro-outline" id="closeProModal"><i class="fas fa-times-circle"></i> Tutup</button>
     </div>
 </div>
+<div id="toastPro" class="toast-pro">💖 Tersalin ke clipboard</div>
 
-<div id="toastBp" class="toast-notif">🖤💖 Tersalin ke clipboard!</div>
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    // Partikel hitam pink
-    function createBGParticles() {
-        const container = document.getElementById('bpParticles');
-        const count = 180;
-        for (let i = 0; i < count; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            const size = Math.random() * 6 + 2;
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 8 + 's';
-            particle.style.animationDuration = Math.random() * 6 + 3 + 's';
-            particle.style.background = `radial-gradient(circle, #ff69b4, #ff1493)`;
-            container.appendChild(particle);
+    AOS.init({ once: true, mirror: false, duration: 800 });
+
+    // Glitter effect
+    function createGlitter() {
+        const container = document.getElementById('glitterContainer');
+        for (let i = 0; i < 250; i++) {
+            const star = document.createElement('div');
+            star.classList.add('glitter-star');
+            const size = Math.random() * 4 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.animationDuration = Math.random() * 4 + 2 + 's';
+            star.style.opacity = Math.random() * 0.6 + 0.2;
+            container.appendChild(star);
         }
     }
-    createBGParticles();
+    createGlitter();
 
     // Toast
-    let toastTimerBp;
-    function showBpToast(msg) {
-        const toast = document.getElementById('toastBp');
-        if (toastTimerBp) clearTimeout(toastTimerBp);
-        toast.textContent = msg || '💖 Berhasil disalin!';
+    let toastProTimer;
+    function showProToast(msg) {
+        const toast = document.getElementById('toastPro');
+        if (toastProTimer) clearTimeout(toastProTimer);
+        toast.textContent = msg || '✅ Berhasil disalin!';
         toast.classList.add('show');
-        toastTimerBp = setTimeout(() => toast.classList.remove('show'), 2000);
+        toastProTimer = setTimeout(() => toast.classList.remove('show'), 2000);
     }
 
-    // Copy
-    const copyElements = document.querySelectorAll('.copy-icon');
-    copyElements.forEach(el => {
-        el.addEventListener('click', (e) => {
+    // Copy links & numbers
+    document.querySelectorAll('.copy-icon').forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            let textCopy = '';
-            const linkVal = el.getAttribute('data-copy-link');
-            const numVal = el.getAttribute('data-copy-number');
-            if (linkVal) textCopy = linkVal;
-            else if (numVal) textCopy = numVal;
-            if (textCopy) {
-                navigator.clipboard.writeText(textCopy).then(() => {
-                    showBpToast(linkVal ? '🔗 Link grup Black Pink disalin' : '📞 Nomor Admin Payaa disalin');
-                }).catch(() => showBpToast('Gagal salin, coba manual'));
+            let copyText = btn.getAttribute('data-copy-link') || btn.getAttribute('data-copy-number');
+            if (copyText) {
+                navigator.clipboard.writeText(copyText).then(() => {
+                    showProToast(btn.getAttribute('data-copy-link') ? '🔗 Link grup disalin' : '📞 Nomor admin tersalin');
+                }).catch(() => showProToast('Gagal salin'));
             }
         });
     });
 
-    // Modal elements
-    const modal = document.getElementById('bpModal');
-    const modalPackageSpan = document.getElementById('modalPackageName');
-    const modalPriceSpan = document.getElementById('modalPriceAmount');
-    const sendProof = document.getElementById('sendProofBtn');
-    const closeModal = document.getElementById('closeModalBtn');
-    const qrImg = document.getElementById('qrImageBp');
+    // Modal PRO MAX logic
+    const proModal = document.getElementById('proMaxModal');
+    const modalPkg = document.getElementById('modalPkgName');
+    const modalPriceSpan = document.getElementById('modalProPrice');
+    const sendWaBtn = document.getElementById('sendWaEvidence');
+    const closePro = document.getElementById('closeProModal');
+    const qrPro = document.getElementById('qrProImage');
+    qrPro.src = "https://e.top4top.io/p_3769a1mza0.png";
 
-    qrImg.src = "https://e.top4top.io/p_3769a1mza0.png";
-    qrImg.alt = "QR Code Payaa AI - Black Pink";
+    let activeSelection = { name: '', amount: 0 };
 
-    let currentSelection = { name: '', price: 0 };
-
-    function openModal(pkgName, pkgPrice) {
-        currentSelection = { name: pkgName, price: pkgPrice };
-        modalPackageSpan.innerText = `📦 ${pkgName}`;
-        const formatted = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(pkgPrice);
-        modalPriceSpan.innerText = formatted;
-        modal.classList.add('active');
+    function openProModal(pkgName, priceAmount) {
+        activeSelection = { name: pkgName, amount: priceAmount };
+        modalPkg.innerText = `📦 ${pkgName}`;
+        modalPriceSpan.innerText = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(priceAmount);
+        proModal.classList.add('active');
     }
 
-    function closeModalFunc() {
-        modal.classList.remove('active');
+    function closeProModalFunc() {
+        proModal.classList.remove('active');
     }
 
-    // Kirim bukti transfer ke admin via WhatsApp
-    function sendProofToAdmin() {
-        if (!currentSelection.name || !currentSelection.price) {
-            window.open('https://wa.me/6285643623053?text=Halo%20Admin%20Payaa%20AI%2C%20saya%20sudah%20transfer%20untuk%20sewa%20grup%20premium.%20Lampirkan%20bukti%20pembayaran%20QRIS.', '_blank');
+    sendWaBtn.addEventListener('click', () => {
+        if (!activeSelection.name || !activeSelection.amount) {
+            window.open('https://wa.me/6285643623053?text=Halo%20Admin%20Payaa%20AI%20Pro%2C%20saya%20sudah%20transfer%20pembayaran%20grup%20premium.%20Berikut%20bukti%20transfer%20QRIS.', '_blank');
             return;
         }
-        const { name, price } = currentSelection;
-        const msg = `*🖤💖 PAYAA AI - BLACK PINK PREMIUM 💖🖤*%0A%0A✅ *Paket:* ${name}%0A💰 *Nominal:* Rp${price.toLocaleString('id-ID')}%0A📸 *Bukti Transfer:* (sertakan screenshot QRIS payment)%0A%0A_Saya sudah melakukan pembayaran. Mohon segera aktivasi grup premium Payaa AI._%0A%0ATerima kasih ✨`;
-        const waLink = `https://wa.me/6285643623053?text=${msg}`;
-        window.open(waLink, '_blank');
-    }
+        const msg = `*💎 PAYAA AI - 💎*%0A%0A✅ *Paket:* ${activeSelection.name}%0A💰 *Nominal:* Rp${activeSelection.amount.toLocaleString('id-ID')}%0A📸 *Bukti Transfer:* (sertakan screenshot QRIS)%0A%0A_Halo Admin, saya sudah melakukan pembayaran. Tolong segera aktivasi grup premium saya._%0A%0A✨ Terima kasih ✨`;
+        window.open(`https://wa.me/6285643623053?text=${msg}`, '_blank');
+    });
 
-    sendProof.addEventListener('click', sendProofToAdmin);
-    closeModal.addEventListener('click', closeModalFunc);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+    closePro.addEventListener('click', closeProModalFunc);
+    proModal.addEventListener('click', (e) => { if (e.target === proModal) closeProModalFunc(); });
 
-    // Cards with hover dynamic glow
-    const cards = document.querySelectorAll('.price-card');
-    cards.forEach(card => {
-        const handleMove = (e) => {
+    // Card interactions + hover gradient
+    const allCards = document.querySelectorAll('.price-card');
+    allCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
             card.style.setProperty('--x', `${x}%`);
             card.style.setProperty('--y', `${y}%`);
-        };
-        card.addEventListener('mousemove', handleMove);
-    });
+        });
 
-    // Event pemilihan paket
-    cards.forEach(card => {
-        const getCardData = () => {
+        const getInfo = () => {
             let dur = card.getAttribute('data-dur');
             let harga = parseInt(card.getAttribute('data-harga'), 10);
             if (isNaN(harga)) {
-                const priceTextRaw = card.querySelector('.price')?.innerText.replace(/\D/g, '') || '0';
-                harga = parseInt(priceTextRaw, 10);
+                const priceRaw = card.querySelector('.price')?.innerText.replace(/\D/g, '') || '0';
+                harga = parseInt(priceRaw, 10);
             }
             return { dur, harga };
         };
 
-        const selectHandler = (e) => {
+        const selectEvent = (e) => {
             if (e) e.stopPropagation();
-            const { dur, harga } = getCardData();
-            if (dur && !isNaN(harga)) {
-                openModal(dur, harga);
-            } else {
-                showBpToast("⚠️ Gagal memuat paket, coba lagi");
-            }
+            const { dur, harga } = getInfo();
+            if (dur && !isNaN(harga)) openProModal(dur, harga);
+            else showProToast('⚠️ Gagal memuat paket');
         };
 
-        const btn = card.querySelector('.btn-blackpink');
-        if (btn) {
-            btn.addEventListener('click', selectHandler);
-        }
+        const btn = card.querySelector('.btn-pro');
+        if (btn) btn.addEventListener('click', selectEvent);
         card.addEventListener('click', (e) => {
-            if (e.target.closest('.btn-blackpink')) return;
-            selectHandler();
+            if (e.target.closest('.btn-pro')) return;
+            selectEvent();
         });
     });
 
-    // support card hover
-    const supCards = document.querySelectorAll('.support-card');
-    supCards.forEach(sc => {
-        sc.addEventListener('mouseenter', () => {
-            sc.style.transform = 'translateY(-3px)';
-            sc.style.backgroundColor = 'rgba(255, 30, 120, 0.2)';
-        });
-        sc.addEventListener('mouseleave', () => {
-            sc.style.transform = 'translateY(0px)';
-            sc.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-        });
+    // Support card hover effect
+    document.querySelectorAll('.support-card').forEach(sc => {
+        sc.addEventListener('mouseenter', () => { sc.style.transform = 'translateY(-4px)'; sc.style.backgroundColor = 'rgba(255,50,130,0.2)'; });
+        sc.addEventListener('mouseleave', () => { sc.style.transform = 'translateY(0)'; sc.style.backgroundColor = 'rgba(0,0,0,0.6)'; });
     });
 
-    qrImg.onerror = () => console.log("QR image tetap bisa diakses via link");
-    console.log("Payaa AI Black Pink theme ready — QR muncul dengan gaya bold blackpink");
+    console.log("Payaa AI — Dev praa");
 </script>
 </body>
 </html>
